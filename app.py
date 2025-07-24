@@ -37,12 +37,13 @@ if api_key:
             st.warning("No text extracted from uploaded documents.")
         else:
             with st.spinner("Generating..."):
-                prompt = f"Based on the following past RFP content, generate a high-quality answer to this question:
+                prompt = f"""Based on the following past RFP content, generate a high-quality answer to this question:
 
 Question: {question}
 
 Relevant Past Content:
-{all_text}"
+{all_text}
+"""
                 try:
                     response = openai.ChatCompletion.create(
                         model="gpt-4",
